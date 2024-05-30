@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('index');
@@ -42,10 +43,13 @@ Route::get('/admin', function(){
 
 
 /// admin panel routes///
-Route::get('/sign-in', function(){
+Route::get('/admin', function(){
     return view('admin.sign-in');
 })->name('sign-in');
 
 Route::get('/sign-up', function(){
     return view('admin.sign-up');
 })->name('sign-up');
+
+Route::post('/register', [AdminController::class, 'register'])->name('register');
+Route::post('/login', [AdminController::class, 'login'])->name('login');
