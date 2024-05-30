@@ -33,3 +33,19 @@ Route::get('/cart', function(){
 Route::get('/checkout', function(){
     return view('checkout');
 })->name('checkout');
+
+
+Route::get('/admin', function(){
+    return view('admin.index');
+})->name('admin');
+
+
+
+/// admin panel routes///
+Route::get('/sign-in', function(){
+    return view('admin.sign-in');
+})->name('sign-in');
+
+Route::get('/sign-up', function(){
+    return view('admin.sign-up');
+})->name('sign-up');
