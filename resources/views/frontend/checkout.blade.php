@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('main')
 
-<head>
-@include('include.header_scripts')
-
-</head>
-
-<body>
-    <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-circle"></div>
-        <div class="preloader-img">
-            <img src="img/core-img/leaf.png" alt="">
-        </div>
-    </div>
-
-    <!-- ##### Header Area Start ##### -->
-    @include('include.header')
-    <!-- ##### Header Area End ##### -->
+@section('content')
 
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
@@ -154,15 +137,5 @@
             </div>
         </div>
     </div>
-    <!-- ##### Contact Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
-    @include('include.footer')
-    <!-- ##### Footer Area End ##### -->
-
-    <!-- ##### All Javascript Files ##### -->
-    <!-- jQuery-2.2.4 js -->
-    @include('include.footer_scripts')
-</body>
-
-</html>
+    @endsection('content')

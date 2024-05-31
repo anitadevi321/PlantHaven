@@ -122,26 +122,39 @@
                 </div>
               </div>
               <div class="card-body">
+              <div class="row">
+                  <div class="col-12">
+                    @if (Session::has('success'))
+                      <div class="alert alert-success">{{ Session::get('success') }}</div>
+                    @elseif (Session::has('error'))
+                      <div class="alert alert-danger">{{ Session::get('error') }}</div>
+                    @endif
+                  </div>
+                </div>
                 <form role="form" class="text-start" action="{{ route('login') }}" method="post">
                 @csrf
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email">
-                  </div>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"  value="{{ old('email') }}">
+                    @error('email')
+                   <span class="invalid-feedback">{{ $message }}</span>
+                   @enderror
+                  </div>  
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password">
-                  </div>
-                  <div class="form-check form-switch d-flex align-items-center mb-3">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
-                  </div>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}"></br>
+                    @error('password')
+                   <span class="text-danger">{{ $message }}</span>
+                   @enderror
+                  </div></br>
+                 
+                  <a href="{{ route('check') }}">Login With otp</a>
                   <div class="text-center">
                    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
                   </div>
                   <p class="mt-4 text-sm text-center">
                     Don't have an account?
-                    <a href="../pages/sign-up.html" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                    <a href="#" class="text-primary text-gradient font-weight-bold">Sign up</a>
                   </p>
                 </form>
               </div>

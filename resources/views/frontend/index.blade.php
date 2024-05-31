@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-   
-@include('include.header_scripts')
+@extends('main')
 
-</head>
-
-<body>
-    <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-circle"></div>
-        <div class="preloader-img">
-            <img src="img/core-img/leaf.png" alt="">
-        </div>
-    </div>
-
+@section('content')
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
 
@@ -97,7 +83,7 @@
                                             <li><a href="">Shop</a>
                                                 <ul class="dropdown">
                                                     <li><a href="{{ route('shop') }}">Shop</a></li>
-                                                    <li><a href="{{ route('shot-details') }}">Shop Details</a></li>
+                                                    <li><a href="{{ route('shop-details') }}">Shop Details</a></li>
                                                     <li><a href="{{ route('cart') }}">Shopping Cart</a></li>
                                                     <li><a href="{{ route('checkout') }}">Checkout</a></li>
                                                 </ul>
@@ -890,15 +876,4 @@
             </div>
         </div>
     </section>
-    <!-- ##### Contact Area End ##### -->
-
-    <!-- ##### Footer Area Start ##### -->
-    @include('include.footer')
-    <!-- ##### Footer Area End ##### -->
-
-    <!-- ##### All Javascript Files ##### -->
-    <!-- jQuery-2.2.4 js -->
-    @include('include.footer_scripts')
-</body>
-
-</html>
+ @endsection('content')

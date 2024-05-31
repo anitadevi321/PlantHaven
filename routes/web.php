@@ -2,54 +2,34 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ShopdetailsController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\RenderOtpController;
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
-
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
-Route::get('/shop', function () {
-    return view('shop');
-})->name('shop');
-
-Route::get('/portfolio', function () {
-    return view('portfolio');
-})->name('portfolio');
-
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-
-Route::get('/shot-details', function () {
-    return view('shot-details');
-})->name('shot-details');
-
-Route::get('/cart', function(){
-    return view('cart');
-})->name('cart');
-
-Route::get('/checkout', function(){
-    return view('checkout');
-})->name('checkout');
+/// web routes ///
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/shop',  [ShopController::class, 'index'])->name('shop');
+Route::get('/contact', [ContactUsController::class, 'index'])->name('contact');
+Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
+Route::get('/shop-details', [ShopdetailsController::class, 'index'])->name('shop-details');
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 
 
-Route::get('/admin', function(){
-    return view('admin.index');
-})->name('admin');
-
-
-
-/// admin panel routes///
-Route::get('/admin', function(){
-    return view('admin.sign-in');
-})->name('sign-in');
-
-Route::get('/sign-up', function(){
-    return view('admin.sign-up');
-})->name('sign-up');
-
-Route::post('/register', [AdminController::class, 'register'])->name('register');
+/// admin routes///
+Route::get('/admin', [AdminController::class, 'index'])->name('sign-in');
 Route::post('/login', [AdminController::class, 'login'])->name('login');
+
+Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+
+
+Route::get('/check', [RenderOtpController::class, 'render_otp'])->name('check');

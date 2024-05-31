@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-@include('include.header_scripts')
+@include('frontend.include.header_scripts')
 
 </head>
 
@@ -16,7 +16,7 @@
     </div>
 
     <!-- ##### Header Area Start ##### -->
-    @include('include.header')
+    @include('frontend.include.header')
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcrumb Area Start ##### -->
@@ -126,12 +126,12 @@
     <!-- ##### Contact Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
-    @include('include.footer')
+    @include('frontend.include.footer')
     <!-- ##### Footer Area End ##### -->
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
-    @include('include.footer_scripts')
+    @include('frontend.include.footer_scripts')
 </body>
 
 </html>

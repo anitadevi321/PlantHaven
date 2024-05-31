@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\admin_login;
 use App\Models\Auth;
+use Illuminate\Support\Facades\Hash;
+
 class admin_seeder extends Seeder
 {
     /**
@@ -13,9 +15,11 @@ class admin_seeder extends Seeder
      */
     public function run(): void
     {
+        $password= "techno321";
         admin_login::create([
             "email" => "technoarray@gmail.com",
-            "password" => "Tech@321",
+            'password' => Hash::make($password),
+            "phone" => 8264930805,
             "otp" => 123456
         ]);
     }
